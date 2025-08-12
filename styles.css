@@ -1,28 +1,45 @@
+/* LIGHT THEME UPDATE */
+
 /* The main sidebar container */
 #prompt-sidebar {
   position: fixed;
-  top: 80px; /* Adjust this to not overlap the top header */
+  top: 80px;
   left: 10px;
-  width: 250px;
-  max-height: 80vh;
-  background-color: #202123; /* A dark theme color */
-  border: 1px solid #4d4d4f;
-  border-radius: 8px;
+  width: 280px;
+  height: 60vh;
+  min-width: 200px;
+  min-height: 200px;
+  
+  /* Frosted Glass Effect - LIGHT THEME */
+  background-color: rgba(248, 248, 248, 0.75); /* Light, semi-transparent */
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
   padding: 15px;
-  z-index: 9999; /* Make sure it's on top of everything */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-  overflow-y: auto; /* Add a scrollbar if prompts overflow */
-  font-family: Arial, sans-serif;
+  z-index: 9999;
+  
+  /* Lighter, more subtle shadow */
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  
+  overflow: hidden; 
+  display: flex;
+  flex-direction: column;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  transition: box-shadow 0.3s ease;
 }
 
 /* Sidebar title */
 #prompt-sidebar h3 {
-  color: #ececf1;
+  color: #1d1d1f; /* Dark text */
   margin-top: 0;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   font-size: 16px;
-  border-bottom: 1px solid #4d4d4f;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   padding-bottom: 10px;
+  cursor: move;
+  flex-shrink: 0;
 }
 
 /* The list of prompts */
@@ -30,6 +47,9 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  overflow-y: auto;
+  flex-grow: 1;
+  padding-right: 5px;
 }
 
 /* Each prompt button */
@@ -37,20 +57,56 @@
   width: 100%;
   padding: 10px;
   margin-bottom: 8px;
-  background-color: #343541;
-  color: #ececf1;
-  border: 1px solid #4d4d4f;
-  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.05); /* Light grey background */
+  color: #333; /* Dark text */
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
   text-align: left;
   font-size: 14px;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis; /* Add '...' if text is too long */
-  transition: background-color 0.2s ease;
+  text-overflow: ellipsis;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
-/* Hover effect for buttons */
-#prompt-sidebar button:hover {
-  background-color: #444654;
+/* Hover/Focus effect for buttons with a vibrant blue accent */
+#prompt-sidebar button:hover, #prompt-sidebar button:focus {
+  background-color: #007AFF; /* Apple's vibrant blue */
+  color: #FFFFFF; /* White text on hover */
+  outline: none;
+  transform: translateY(-2px);
+}
+
+/* The resize handle in the bottom-right corner */
+#resize-handle {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 15px;
+  height: 15px;
+  cursor: nwse-resize;
+  background-image: linear-gradient(
+    135deg,
+    transparent 60%,
+    rgba(0, 0, 0, 0.4) 60%,
+    rgba(0, 0, 0, 0.4) 80%,
+    transparent 80%
+  );
+}
+
+/* Custom Scrollbar Styling - LIGHT THEME */
+#prompt-sidebar ul::-webkit-scrollbar {
+  width: 8px;
+}
+#prompt-sidebar ul::-webkit-scrollbar-track {
+  background: transparent;
+}
+#prompt-sidebar ul::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  border: 3px solid transparent;
+}
+#prompt-sidebar ul::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.4);
 }
