@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "ChatGPT Quick Nav",
+  "version": "1.0",
+  "description": "Adds a clickable sidebar of your prompts to easily navigate long chats.",
+  "permissions": [],
+  "content_scripts": [
+    {
+      "matches": ["https://chatgpt.com/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ]
+}

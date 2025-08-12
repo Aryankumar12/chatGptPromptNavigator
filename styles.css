@@ -1,0 +1,56 @@
+/* The main sidebar container */
+#prompt-sidebar {
+  position: fixed;
+  top: 80px; /* Adjust this to not overlap the top header */
+  left: 10px;
+  width: 250px;
+  max-height: 80vh;
+  background-color: #202123; /* A dark theme color */
+  border: 1px solid #4d4d4f;
+  border-radius: 8px;
+  padding: 15px;
+  z-index: 9999; /* Make sure it's on top of everything */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  overflow-y: auto; /* Add a scrollbar if prompts overflow */
+  font-family: Arial, sans-serif;
+}
+
+/* Sidebar title */
+#prompt-sidebar h3 {
+  color: #ececf1;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 16px;
+  border-bottom: 1px solid #4d4d4f;
+  padding-bottom: 10px;
+}
+
+/* The list of prompts */
+#prompt-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Each prompt button */
+#prompt-sidebar button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 8px;
+  background-color: #343541;
+  color: #ececf1;
+  border: 1px solid #4d4d4f;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: left;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Add '...' if text is too long */
+  transition: background-color 0.2s ease;
+}
+
+/* Hover effect for buttons */
+#prompt-sidebar button:hover {
+  background-color: #444654;
+}
